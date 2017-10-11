@@ -16,40 +16,47 @@
 		http://www.jqueryscript.net/demo/Simple-Wizard-Modal-Plugin-with-jQuery-Bootstrap-Easy-Wizard/
 	-->
 	<body ng-controller="controller">
-		<div  uni-panels>
-			<fieldset>
-				<legend>
-					PERSONA
-				</legend>
-					<div><h1>Cuerpo 1</h1></div>
-				<footer>
-					<div uni-grid="">
-						<button uni-badge="" lcol="10" col="2">guardar</button>
-					</div>
-				</footer>
-			</fieldset>
-			<div>
+		<div style="margin:100px">
+			<div  uni-wizard>
 				<header>
-					DIRECCIÓN
+					<h3>Register To Our App</h3>
+					<p>Fill in the form to get instant access</p>
 				</header>
-				<div><h1>Cuerpo 2</h1></div>
+				<fieldset>
+					<legend>
+						<span>PERSONA</span>
+					</legend>
+					<div><h1>Cuerpo 1</h1></div>
+					<footer>
+						<button uni-badge="" lcol="10" col="2">guardar1</button>
+					</footer>
+				</fieldset>
+				<div>
+					<header>
+						DIRECCIÓN
+					</header>
+					<div><h1>Cuerpo 2</h1></div>
+					<footer>
+						<button uni-badge="" lcol="10" col="2">guardar2</button>
+					</footer>
+				</div>
+				<fieldset>
+					<legend>
+						CONTACTO
+					</legend>
+					<div><h1>Cuerpo 3</h1></div>
+					<footer>
+						<button uni-badge="" lcol="10" col="2">guardar3</button>
+						<button uni-badge="" lcol="10" col="2">guardar1</button>
+						<button uni-badge="" lcol="10" col="2">guardar2</button>
+						<button uni-badge="" lcol="10" col="2">guardar3</button>
+					</footer>
+				</fieldset>
 				<footer>
-					<div uni-grid="">
-						<button uni-badge="" lcol="10" col="2">guardar</button>
-					</div>
+					<button ng-click="console.log(1)" uni-badge="{icon:'arrow-left'}"></button>
+					<button ng-click="console.log(1)" uni-badge="{icon:'arrow-right'}"></button>
 				</footer>
 			</div>
-			<fieldset>
-				<legend>
-					CONTACTO
-				</legend>
-				<div><h1>Cuerpo 3</h1></div>
-				<footer>
-					<div uni-grid="">
-						<button uni-badge="" lcol="10" col="2">guardar</button>
-					</div>
-				</footer>
-			</fieldset>
 		</div>
 	</body>
 </html>

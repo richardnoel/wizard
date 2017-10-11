@@ -68,6 +68,13 @@ unikit.factory('$unikit', ['$rootScope', function ($rootScope) {
 				SUBPANEL: {skip: false, level: 'default'},
 				MODAL: {skip: false, level: 'default', content: false, size: 'md', height: 'none'}
 			},
+			UNI_WIZARD: {
+				__type: 'type',
+				__default: 'TRIANGULAR',
+				__tag: ['div', 'fieldset'],
+				CIRCULAR: {skip: false, level: 'default', alignment: 'top'},
+				TRIANGULAR: {skip: false, level: 'default', alignment: 'top'}
+			},
 			UNI_PANELS: {
 				__type: 'type',
 				__default: 'TAB',
