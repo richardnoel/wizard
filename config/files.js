@@ -1,6 +1,7 @@
 var files = {
 	css:[
-		"src/css/unikit.css"	
+		"src/css/unikit.css",
+		"src/css/wizard.css"	
 	],
 	js:[
 		"src/js/utils/basic-function.js",

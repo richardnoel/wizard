@@ -4,6 +4,9 @@ unikit.directive("uniWizard", ["$rootScope", "$unikit", "$compile", function ($r
 			TRIANGULAR: "uni-wizard-triangular",
 			CIRCULAR: "uni-wizard-circular"
 		};
+		var wizardIndex = 'uni' + Math.random().toString(16).slice(2);
+		var sizeSteps = 0;
+		var detectedSteps = 'uni' + Math.random().toString(16).slice(2);
 		var evaluateNgVisibility = function (dom, elem) {
 			var listNg = ["ng-show", "ng-hide", "ng-if"];
 			for (var i = 0; i < listNg.length; i += 1) {
@@ -56,16 +59,16 @@ unikit.directive("uniWizard", ["$rootScope", "$unikit", "$compile", function ($r
 					panel.item[index].ngRepeat = value;
 				}
 			});
+			sizeSteps = itemList.length || 0;
 			return panel;
 		};
 
 		var createHTMLHeader = function (panel, config) {
 			var itemList = panel.items;
-			var id = panel.id;
-			var htmlTemplate = "<div	class='f1-steps'>{itemHTML}</div>";
+			var htmlTemplate = "<div	class='wizard-steps'>{itemHTML}</div>";
 			var itemHTML = "";
-			var progressBar = "<div class='f1-progress'>{line}</div>";
-			var progressLine = "<div class='f1-progress-line' data-now-value='16.66' data-number-of-steps='3' style='width:33%'></div>";
+			var progressBar = "<div class='wizard-progress'>{line}</div>";
+			var progressLine = "<div class='wizard-progress-line'></div>";
 			progressBar = progressBar.replace(/{line}/g, progressLine);
 			itemHTML += progressBar;
 			angular.forEach(itemList, function (item, index) {
@@ -74,34 +77,44 @@ unikit.directive("uniWizard", ["$rootScope", "$unikit", "$compile", function ($r
 					html = replaceTagName(item.header, "div");
 					html.innerHTML = null;
 					if (item.ngRepeat) {
-						//to do
+						console.log("to do");
 					} else {
-						html.setAttribute("class", "f1-step {active}");
+						html.setAttribute("class", "wizard-step tab-pane ");
+						//html.setAttribute("ng-class", "{wizardIndex}== '" + index + "' ? \"tab-pane active\": \"tab-pane disable\"");
+						html.setAttribute("ng-class", "{'active': {wizardIndex}== '" + index + "', 'disable': {detectedSteps}.indexOf(" + index + ") == -1}");
+						//html.setAttribute("ng-class", "{class1 : {wizardIndex}== '" + index + "' ? \"tab-pane active\": \"tab-pane disable\", class2: {detectedSteps}.indexOf(" + index + ") > -1 ? \"dirty\":\"\" }");
+						html.style.width = 100 / (itemList.length) + "%";
 					}
 				}
-				var icon;
-				var buttons = item.header.querySelectorAll(":scope > button, :scope > span, :scope > a");
-				for (var i = 0; i < buttons.length; i += 1) {
-					if (buttons[i].getAttribute('uni-badge')) {
-						item.header.removeChild(buttons[i]);
-						icon = buttons[i].outerHTML;
-						break;
+				var button = item.header.querySelector(":scope > button, :scope > span, :scope > a");
+				if (button) {
+					item.header.removeChild(button);
+					if (!button.getAttribute("uni-badge")) {
+						button.setAttribute("uni-badge");
 					}
+					var click = "";
+					if (button.getAttribute("ng-click")) {
+						click = button.getAttribute("ng-click");
+					}
+					button.setAttribute("ng-click", click + "___clickStep({index}, {totalSteps})");
+					button = button.outerHTML;
+				} else {
+					button = "<span ng-click='___clickStep({index}, {totalSteps})' uni-badge='{level:\"danger\"}'>{index}</span>";
 				}
-				if (!icon) {
-					icon = "<span uni-badge='{level:\"danger\"}'>{index}</span>";
-					icon = icon.replace(/{index}/g, index + 1);
-				}
-				var contentLegend = "<div class='f1-legend-content'>{legend}</div>";
-				var contentIcon = "<div class='f1-icon-content'>{badge}</div>";
+				button = button.replace(/{index}/g, index);
+				var contentLegend = "<div class='wizard-legend-content'>{legend}</div>";
+				var contentIcon = "<div class='wizard-icon-content'>{badge}</div>";
 				var contentLegend = contentLegend.replace(/{legend}/g, item.header.innerHTML);
-				contentIcon = contentIcon.replace(/{badge}/g, icon);
+				contentIcon = contentIcon.replace(/{badge}/g, button);
 				html.innerHTML = contentIcon + contentLegend;
 				html = html ? html.outerHTML : "";
-				html = html.replace("{active}", index === 0 ? "active" : "");
+				html = html.replace(/{wizardIndex}/g, wizardIndex);
+				html = html.replace(/{index}/g, index);
+				html = html.replace(/{totalSteps}/g, itemList.length);
+				html = html.replace(/{detectedSteps}/g, detectedSteps);
 				itemHTML += html;
 			});
-			htmlTemplate = htmlTemplate.replace("{itemHTML}", itemHTML);
+			htmlTemplate = htmlTemplate.replace(/{itemHTML}/g, itemHTML);
 			if (panel.header.length) {
 				angular.element(panel.header).append(htmlTemplate);
 				htmlTemplate = panel.header[0].outerHTML;
@@ -112,23 +125,19 @@ unikit.directive("uniWizard", ["$rootScope", "$unikit", "$compile", function ($r
 			return htmlTemplate;
 		};
 
-
 		var createHTMLContent = function (panel) {
-			var id = panel.id;
 			var itemList = panel.items;
-			var htmlTemplate = "<div	class='wizard-content {componentClass}'>{itemHTML}</div>";
+			var htmlTemplate = "<div class='wizard-content {componentClass}'>{itemHTML}</div>";
 			var itemHTML = "";
 			angular.forEach(itemList, function (item, index) {
-				var html = "<div class='tab-pane fade {active}' id='{idContent}'>{itemContent}</div>";
+				var html = "<div ng-class='{wizardIndex} == {index} ? \"tab-pane fade active in\": \"tab-pane fade\"'>{itemContent}</div>";
 				if (item.ngRepeat) {
-					html = "<div {ngClass} class='wizard-panel' id='{idContent}-{{$index}} {ngRepeat}>{itemContent} {htmlFooter}</div>";
-					html = html.replace("{ngRepeat}", "ng-repeat='" + item.ngRepeat + "'");
-					html = html.replace("{ngClass}", "ng-class='" + item.header.getAttribute("ng-class") + "'");
+					console.log('to do');
 				}
 				var content = item.content;
-				html = html.replace("{active}", index === 0 ? " active in" : "");
-				html = html.replace("{idContent}", id + "-" + index);
 				html = html.replace("{itemContent}", content ? content.innerHTML : "--Content--");
+				html = html.replace("{wizardIndex}", wizardIndex);
+				html = html.replace("{index}", index);
 				html = angular.element(html)[0];
 				evaluateNgVisibility(item.content, html);
 				itemHTML += html.outerHTML;
@@ -138,7 +147,7 @@ unikit.directive("uniWizard", ["$rootScope", "$unikit", "$compile", function ($r
 		};
 		var createHTMLFooter = function (panel) {
 			var itemList = panel.items;
-			var htmlTemplate = "<footer	class='f1-footer-steps'><div class='wizard-btn-prev'>{prevButton}</div>" +
+			var htmlTemplate = "<footer	class='wizard-footer-steps'><div class='wizard-btn-prev'>{prevButton}</div>" +
 											"<div class='wizard-btn-items'>{itemHTML}</div><div class='wizard-btn-next'>{nextButton}</div></footer>";
 			var itemHTML = "";
 			angular.forEach(itemList, function (item, index) {
@@ -158,12 +167,12 @@ unikit.directive("uniWizard", ["$rootScope", "$unikit", "$compile", function ($r
 							contenFooter = "<div uni-action>{htmlFooter}</div>";
 							contenFooter = contenFooter.replace(/{htmlFooter}/g, buttons);
 						}
-						html.setAttribute("class", "f1-step-footer {active}");
+						html.setAttribute("ng-class", "{wizardIndex}== '" + index + "' ? \"tab-pane fade active in\": \"tab-pane fade\"");
 						html.innerHTML = contenFooter;
 					}
 				}
 				html = html ? html.outerHTML : "";
-				html = html.replace("{active}", index === 0 ? "active" : "");
+				html = html.replace("{wizardIndex}", wizardIndex);
 				itemHTML += html;
 			});
 			if (panel.footer.length) {
@@ -181,16 +190,18 @@ unikit.directive("uniWizard", ["$rootScope", "$unikit", "$compile", function ($r
 					console.warn("se esperaba solo dos botones");
 				}
 			} else {
-				var prevButton = "<button ng-click='console.log(1)' uni-badge='{icon:\"arrow-left\"}'></button>";
-				var nextButton = "<button ng-click='console.log(1)' uni-badge='{icon:\"arrow-left\"}'></button>";
+				var prevButton = "<button ng-click='__clickPrev()' uni-badge='{icon:\"arrow-left\"}'  ng-hide='{wizardIndex} == 0'></button>";
+				var nextButton = "<button ng-click='__clickNext()' uni-badge='{icon:\"arrow-right\"}' ng-hide='{wizardIndex} == ({sizeSteps}-1)'></button>";
 			}
 			htmlTemplate = htmlTemplate.replace(/{prevButton}/g, prevButton);
 			htmlTemplate = htmlTemplate.replace(/{nextButton}/g, nextButton);
-			htmlTemplate = htmlTemplate.replace("{itemHTML}", itemHTML);
+			htmlTemplate = htmlTemplate.replace(/{itemHTML}/g, itemHTML);
+			htmlTemplate = htmlTemplate.replace(/{wizardIndex}/g, wizardIndex);
+			htmlTemplate = htmlTemplate.replace(/{sizeSteps}/g, sizeSteps);
 			return htmlTemplate;
 		};
 		var creteTemplate = function (panel, config) {
-			var template = "<div class='uni-wizard f1 {componentClass}'> {header} {stepContent} {footer}</div>";
+			var template = "<div class='uni-wizard wizard {componentClass}'> {header} {stepContent} {footer}</div>";
 			var stepHeader = createHTMLHeader(panel, config);
 			var stepContent = createHTMLContent(panel);
 			var stepFooter = createHTMLFooter(panel);
@@ -228,7 +239,33 @@ unikit.directive("uniWizard", ["$rootScope", "$unikit", "$compile", function ($r
 				return html;
 			},
 			link: function (scope, element) {
-				element.removeAttr("uni-panels");
+				var resizeBar = function (index, total) {
+					var width = ((index + 1) * 100) / total;
+					element.find('.wizard-progress-line').width(width + "%");
+				};
+				scope[wizardIndex] = 0;
+				scope[detectedSteps] = [0];
+				scope.___clickStep = function (index, total) {
+					if (scope[detectedSteps].indexOf(index) > -1) {
+						scope[wizardIndex] = index;
+					}
+				};
+				scope.__clickNext = function () {
+					scope[wizardIndex] += 1;
+					resizeBar(scope[wizardIndex], sizeSteps);
+					if (scope[detectedSteps].indexOf(scope[wizardIndex]) === -1) {
+						scope[detectedSteps].push(scope[wizardIndex]);
+					}
+				};
+				scope.__clickPrev = function () {
+					var index = scope[detectedSteps].indexOf(scope[wizardIndex]);
+					if (index > -1) {
+						scope[detectedSteps].splice(index, 1);
+					}
+					scope[wizardIndex] -= 1;
+					resizeBar(scope[wizardIndex], sizeSteps);
+				};
+				resizeBar(0, sizeSteps);
 				$compile(element)(scope);
 			}
 		};
