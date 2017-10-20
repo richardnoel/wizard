@@ -15,106 +15,59 @@
 		http://bashooka.com/coding/jquery-step-by-step-form-wizard-plugins/
 		http://www.jqueryscript.net/demo/Simple-Wizard-Modal-Plugin-with-jQuery-Bootstrap-Easy-Wizard/
 	-->
-	<body ng-controller="controller">
-		<div style="margin:40px">
-			<div  uni-wizard>
-				<header>
-					<h3>Register To Our App</h3>
-					<p>Fill in the form to get instant access</p>
-				</header>
-				<fieldset>
-					<legend>
-						<button uni-badge="{icon:'user', level:'danger'}"></button>
-						<span>PERSONA</span>
-					</legend>
-					<div><h1>Cuerpo 1</h1></div>
-					<div><h1>Cuerpo 1</h1></div>
-					<div><h1>Cuerpo 1</h1></div>
-					<div><h1>Cuerpo 1</h1></div>
-					<footer>
-						<button uni-badge="" lcol="10" col="2">guardar1</button>
-					</footer>
-				</fieldset>
-				<div>
-					<header>
-						<button uni-badge="{icon:'file', level:'danger'}"></button>
-						DIRECCIÓN
-					</header>
-					<div><h1>Cuerpo 2</h1></div>
-					<div><h1>Cuerpo 2</h1></div>
-					<div><h1>Cuerpo 2</h1></div>
-					<div><h1>Cuerpo 2</h1></div>
-					<footer>
-						<button uni-badge="" lcol="10" col="2">eliminar</button>
-						<button uni-badge="" lcol="10" col="2">enviar </button>
-						<button uni-badge="" lcol="10" col="2">validar</button>
-						<button uni-badge="" lcol="10" col="2">guardar</button>
-					</footer>
+	<body >
+		<div style="margin:40px" ng-init="pivoteObject = {}">
+			<div ng-controller="controller">
+				<div uni-panel>
+					<header><h1>Formulario 1</h1></header>
+					<div uni-grid='{cols:[6,6]}'>
+						<form name="form1" uni-validator="{type:'tooltip'}" uni-collapse="{expandWidth:true}" detail="fomularios de datos personales">
+							<h1>form1</h1>
+							<div uni-grid="{cols:[4,4,4]}">
+								<div uni-panel uni-collapse="{expandWidth:true}">
+									<header>Mis datos</header>
+									<div uni-grid="{cols:[2,4]}"  detail="fomularios de datos personales">
+										<label>Nombre</label><input type="text" ng-model="pivoteObject.nombre" required ><label>Apellido Paterno</label><input type="text" ng-model="pivoteObject.apellidoPat" required><br>
+										<label>Apellido Materno</label><input type="text" ng-model="pivoteObject.apellidoMat"><label>Direccion</label><input type="text" ng-model="pivoteObject.direccion"><br>
+										<label>Celular</label><input type="text" ng-model="pivoteObject.celular"><label>Telefono</label><input type="text" ng-model="pivoteObject.telefono"><br>
+										<label>Fecha de Nacimiento</label><input type="text" ng-model="pivoteObject.nacimiento"><label>Ciudad</label><input type="text" ng-model="pivoteObject.ciudad">
+										<br><label>Provincia</label><input type="text" ng-model="pivoteObject.provincia"><br>
+									</div>
+								</div>
+								<div uni-grid="{cols:[2,4]}" uni-collapse="{expandWidth:true}" detail="fomularios de datos personales">
+									<label>Nombre</label><input type="text" ng-model="pivoteObject.nombre" required ><label>Apellido Paterno</label><input type="text" ng-model="pivoteObject.apellidoPat" required><br>
+									<label>Apellido Materno</label><input type="text" ng-model="pivoteObject.apellidoMat"><label>Direccion</label><input type="text" ng-model="pivoteObject.direccion"><br>
+									<label>Celular</label><input type="text" ng-model="pivoteObject.celular"><label>Telefono</label><input type="text" ng-model="pivoteObject.telefono"><br>
+									<label>Fecha de Nacimiento</label><input type="text" ng-model="pivoteObject.nacimiento"><label>Ciudad</label><input type="text" ng-model="pivoteObject.ciudad">
+									<br><label>Provincia</label><input type="text" ng-model="pivoteObject.provincia"><br>
+								</div>
+								<div uni-grid="{cols:[2,4]}" uni-collapse="{expandWidth:true}" detail="fomularios de datos personales">
+									<label>Nombre</label><input type="text" ng-model="pivoteObject.nombre" required ><label>Apellido Paterno</label><input type="text" ng-model="pivoteObject.apellidoPat" required><br>
+									<label>Apellido Materno</label><input type="text" ng-model="pivoteObject.apellidoMat"><label>Direccion</label><input type="text" ng-model="pivoteObject.direccion"><br>
+									<label>Celular</label><input type="text" ng-model="pivoteObject.celular"><label>Telefono</label><input type="text" ng-model="pivoteObject.telefono"><br>
+									<label>Fecha de Nacimiento</label><input type="text" ng-model="pivoteObject.nacimiento"><label>Ciudad</label><input type="text" ng-model="pivoteObject.ciudad">
+									<br><label>Provincia</label><input type="text" ng-model="pivoteObject.provincia"><br>
+								</div>								
+							</div>
+						</form>					
+						<pre>{{pivoteObject|json}}</pre>
+					</div>
+					<div>
+						<form name="form1" uni-validator="{type:'tooltip'}">
+							<h1>form2</h1>
+							<div uni-grid="{cols:[2,4]}" >
+								<label>Nombre</label><input type="text" ng-model="pivoteObject.nombre" required><label>Apellido Paterno</label><input type="text" ng-model="pivoteObject.apellidoPat" required><br>
+								<label>Apellido Materno</label><input type="text" ng-model="pivoteObject.apellidoMat"><label>Direccion</label><input type="text" ng-model="pivoteObject.direccion"><br>
+								<label>Celular</label><input type="text" ng-model="pivoteObject.celular"><label>Telefono</label><input type="text" ng-model="pivoteObject.telefono"><br>
+								<label>Fecha de Nacimiento</label><input type="text" ng-model="pivoteObject.nacimiento"><label>Ciudad</label><input type="text" ng-model="pivoteObject.ciudad">
+								<br><label>Provincia</label><input type="text" ng-model="pivoteObject.provincia"><br>
+							</div>
+						</form>					
+						<pre>{{pivoteObject|json}}</pre>
+					</div>
 				</div>
-				<fieldset>
-					<legend>
-						CONTACTO
-					</legend>
-					<div><h1>Cuerpo 3</h1></div>
-					<div><h1>Cuerpo 3</h1></div>
-					<div><h1>Cuerpo 3</h1></div>
-					<div><h1>Cuerpo 3</h1></div>
-					<footer>
-						<button uni-badge="" lcol="10" col="2">enviar </button>
-						<button uni-badge="" lcol="10" col="2">guardar</button>
-						<button uni-badge="" lcol="10" col="2">eliminar</button>
-						<button uni-badge="" lcol="10" col="2">validar</button>
-					</footer>
-				</fieldset>
-				<fieldset>
-					<legend>
-						<button uni-badge="{icon:'user', level:'danger'}"></button>
-						<span>PERSONA</span>
-					</legend>
-					<div><h1>Cuerpo 4</h1></div>
-					<div><h1>Cuerpo 4</h1></div>
-					<div><h1>Cuerpo 4</h1></div>
-					<div><h1>Cuerpo 4</h1></div>
-					<footer>
-						<button uni-badge="" lcol="10" col="2">guardar1</button>
-					</footer>
-				</fieldset>
-				<div>
-					<header>
-						<button uni-badge="{icon:'file', level:'danger'}"></button>
-						DIRECCIÓN
-					</header>
-					<div><h1>Cuerpo 5</h1></div>
-					<div><h1>Cuerpo 5</h1></div>
-					<div><h1>Cuerpo 5</h1></div>
-					<div><h1>Cuerpo 5</h1></div>
-					<footer>
-						<button uni-badge="" lcol="10" col="2">eliminar</button>
-						<button uni-badge="" lcol="10" col="2">guardar</button>
-						<button uni-badge="" lcol="10" col="2">validar</button>
-						<button uni-badge="" lcol="10" col="2">enviar </button>
-					</footer>
-				</div>
-				<fieldset>
-					<legend>
-						CONTACTO
-					</legend>
-					<div><h1>Cuerpo 6</h1></div>
-					<div><h1>Cuerpo 6</h1></div>
-					<div><h1>Cuerpo 6</h1></div>
-					<div><h1>Cuerpo 6</h1></div>
-					<footer>
-						<button uni-badge="" lcol="10" col="2">validar</button>
-						<button uni-badge="" lcol="10" col="2">guardar</button>
-						<button uni-badge="" lcol="10" col="2">enviar </button>
-						<button uni-badge="" lcol="10" col="2">eliminar</button>
-					</footer>
-				</fieldset>
-				<!--				<footer>
-									<button ng-click="console.log(1)" uni-badge="{icon:'arrow-left'}"></button>
-									<button ng-click="console.log(1)" uni-badge="{icon:'arrow-right'}"></button>
-								</footer>-->
-			</div>
+			</div>				
 		</div>
-	</body>
+	</div>
+</body>
 </html>

@@ -476,7 +476,7 @@ textarea.form-control.ng-pristine {
 	padding: 0 5px;
 }
 :required  {
-	background: url(/static/images/required-icon.png) no-repeat;
+	background: url(/images/required-icon.png) no-repeat;
 	background-position: right;
 	background-size: 0.7em;
 	background-position-y: 3px;

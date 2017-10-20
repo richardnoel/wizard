@@ -1,5 +1,4 @@
-body {
-	font-family: 'Roboto', sans-serif;
+.wizard-header-content{
 	font-size: 16px;
 	font-weight: 300;
 	color: #888;
@@ -41,22 +40,6 @@ h4 {
 	font-weight: 300;
 	color: #555;
 	line-height: 26px;
-}
-
-img {
-	max-width: 100%;
-}
-
-::-moz-selection {
-	background: #f35b3f;
-	color: #fff;
-	text-shadow: none;
-}
-
-::selection {
-	background: #f35b3f;
-	color: #fff;
-	text-shadow: none;
 }
 
 /***** Top menu *****/
@@ -175,7 +158,7 @@ ul.navbar-nav {
 .wizard-steps {
 	overflow: hidden;
 	position: relative;
-	border-bottom: 1px solid;
+	padding-bottom:10px;
 }
 
 .wizard-progress {
@@ -323,28 +306,17 @@ ul.navbar-nav {
 }
 
 .uni-wizard {
-	border: 1px solid;
+	border: 1px solid #c0c0c0;
 }
-
+.wizard-btn-prev, .wizard-btn-next{
+	width: 10%;
+}
 .wizard-btn-prev button,
 .wizard-btn-next button{
-	font-size:30px;
+	font-size:18px;
 }
-.wizard-btn-prev,
-.wizard-btn-next {
-	width: 15%;
-}
-.wizard-btn-items{
-	width: 70%;
-}
-.wizard-btn-prev button{
-	float: left;
-	margin-left: 15px; 
-}
-.wizard-btn-next button{
-	float: right;
-	margin-right: 15px;
-}
+
+
 
 .wizard-content > .tab-pane{
 	display: none;
@@ -364,4 +336,69 @@ ul.navbar-nav {
 
 .wizard-footer-steps > div{
 	display: inline-block;
+}
+
+.wizard-content{
+	padding: 10px;
+}
+.wizard-btn-items{
+	line-height: 30px;
+	text-align: center;
+}
+
+.wizard-footer-steps{
+	text-align: center;
+	padding: 5px 10px;
+	border-top: 1px solid #e7e7e7;
+}
+
+.wizard-btn-items{
+	width: 80%;
+	text-align: left;
+}
+
+
+.zoom-container{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+}
+
+.zoom-container .uni-modal-header{
+	text-align:right;
+	padding: 3px;
+}
+
+.expand-content{
+	left: 95%;
+	position: absolute;
+	z-index: 3;
+}
+
+.zoom-container .modal-dialog{
+	margin:0px;
+}
+
+.expand-content{
+	opacity:0;
+}
+
+
+
+.uni-collapse{
+	border: 1px solid #d0d0d0;
+	margin: 0 0 10px;
+	border-top: 1px solid #bbb !important;
+	padding: 0px 15px;
+}
+
+.uni-collapse-header{
+	padding: 0px 2px;
+	border-bottom: none;
+	width: auto;
+}
+
+.uni-collapse-title{
+	margin-left:10px;
 }

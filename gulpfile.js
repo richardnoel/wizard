@@ -23,9 +23,9 @@ gulp.task("local-server", function () {
 				"/jquery/": "lib/jquery/",
 				"/bootstrap/": "lib/bootstrap/",
 				"/angularjs/": "lib/angularjs/",
-				"/webkit/": "lib/webkit/",
 				"/fonts/": "lib/fonts/",
-				"/webkit/": "dist/webkit/"
+				"/webkit/": "dist/webkit/",
+				"/images/": "images/",
 			}
 		},
 		port: "3333",

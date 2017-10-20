@@ -7,6 +7,7 @@ unikit.directive("uniWizard", ["$rootScope", "$unikit", "$compile", function ($r
 		var wizardIndex = 'uni' + Math.random().toString(16).slice(2);
 		var sizeSteps = 0;
 		var detectedSteps = 'uni' + Math.random().toString(16).slice(2);
+		var formsSteps = [];
 		var evaluateNgVisibility = function (dom, elem) {
 			var listNg = ["ng-show", "ng-hide", "ng-if"];
 			for (var i = 0; i < listNg.length; i += 1) {
@@ -80,9 +81,7 @@ unikit.directive("uniWizard", ["$rootScope", "$unikit", "$compile", function ($r
 						console.log("to do");
 					} else {
 						html.setAttribute("class", "wizard-step tab-pane ");
-						//html.setAttribute("ng-class", "{wizardIndex}== '" + index + "' ? \"tab-pane active\": \"tab-pane disable\"");
 						html.setAttribute("ng-class", "{'active': {wizardIndex}== '" + index + "', 'disable': {detectedSteps}.indexOf(" + index + ") == -1}");
-						//html.setAttribute("ng-class", "{class1 : {wizardIndex}== '" + index + "' ? \"tab-pane active\": \"tab-pane disable\", class2: {detectedSteps}.indexOf(" + index + ") > -1 ? \"dirty\":\"\" }");
 						html.style.width = 100 / (itemList.length) + "%";
 					}
 				}
@@ -101,7 +100,7 @@ unikit.directive("uniWizard", ["$rootScope", "$unikit", "$compile", function ($r
 				} else {
 					button = "<span ng-click='___clickStep({index}, {totalSteps})' uni-badge='{level:\"danger\"}'>{index}</span>";
 				}
-				button = button.replace(/{index}/g, index);
+				button = button.replace(/{index}/g, index + 1);
 				var contentLegend = "<div class='wizard-legend-content'>{legend}</div>";
 				var contentIcon = "<div class='wizard-icon-content'>{badge}</div>";
 				var contentLegend = contentLegend.replace(/{legend}/g, item.header.innerHTML);
@@ -116,10 +115,11 @@ unikit.directive("uniWizard", ["$rootScope", "$unikit", "$compile", function ($r
 			});
 			htmlTemplate = htmlTemplate.replace(/{itemHTML}/g, itemHTML);
 			if (panel.header.length) {
+				panel.header[0].classList.add('wizard-header-content');
 				angular.element(panel.header).append(htmlTemplate);
 				htmlTemplate = panel.header[0].outerHTML;
 			} else {
-				var header = "<header>{content}</header>";
+				var header = "<header wizard-header-content>{content}</header>";
 				htmlTemplate = header.replace(/{content}/g, htmlTemplate);
 			}
 			return htmlTemplate;
@@ -135,6 +135,13 @@ unikit.directive("uniWizard", ["$rootScope", "$unikit", "$compile", function ($r
 					console.log('to do');
 				}
 				var content = item.content;
+				var form = content.querySelector(":scope > form");
+				if (form) {
+					var name = form.getAttribute("name");
+					formsSteps.push(name);
+				} else {
+					formsSteps.push(undefined);
+				}
 				html = html.replace("{itemContent}", content ? content.innerHTML : "--Content--");
 				html = html.replace("{wizardIndex}", wizardIndex);
 				html = html.replace("{index}", index);
@@ -147,8 +154,8 @@ unikit.directive("uniWizard", ["$rootScope", "$unikit", "$compile", function ($r
 		};
 		var createHTMLFooter = function (panel) {
 			var itemList = panel.items;
-			var htmlTemplate = "<footer	class='wizard-footer-steps'><div class='wizard-btn-prev'>{prevButton}</div>" +
-											"<div class='wizard-btn-items'>{itemHTML}</div><div class='wizard-btn-next'>{nextButton}</div></footer>";
+			var htmlTemplate = "<footer	class='wizard-footer-steps'><div class='wizard-btn-items'>{itemHTML}</div>" +
+											"<div class='wizard-btn-prev'>{prevButton}</div><div class='wizard-btn-next'>{nextButton}</div></footer>";
 			var itemHTML = "";
 			angular.forEach(itemList, function (item, index) {
 				if (item.footer) {
@@ -180,10 +187,14 @@ unikit.directive("uniWizard", ["$rootScope", "$unikit", "$compile", function ($r
 				if (buttons.length === 2) {
 					var prevButton = buttons[0];
 					if (prevButton) {
+						prevButton.setAttribute('ng-click', '__clickPrev()');
+						prevButton.setAttribute('ng-disabled', '{wizardIndex} == 0');
 						prevButton = prevButton.outerHTML;
 					}
 					var nextButton = buttons[1];
 					if (nextButton) {
+						nextButton.setAttribute('ng-click', '__clickNext($event)');
+						nextButton.setAttribute('ng-hide', '{wizardIndex} == ({sizeSteps}-1)');
 						nextButton = nextButton.outerHTML;
 					}
 				} else {
@@ -191,7 +202,7 @@ unikit.directive("uniWizard", ["$rootScope", "$unikit", "$compile", function ($r
 				}
 			} else {
 				var prevButton = "<button ng-click='__clickPrev()' uni-badge='{icon:\"arrow-left\"}'  ng-hide='{wizardIndex} == 0'></button>";
-				var nextButton = "<button ng-click='__clickNext()' uni-badge='{icon:\"arrow-right\"}' ng-hide='{wizardIndex} == ({sizeSteps}-1)'></button>";
+				var nextButton = "<button ng-click='__clickNext($event)' uni-badge='{icon:\"arrow-right\"}' ng-hide='{wizardIndex} == ({sizeSteps}-1)'></button>";
 			}
 			htmlTemplate = htmlTemplate.replace(/{prevButton}/g, prevButton);
 			htmlTemplate = htmlTemplate.replace(/{nextButton}/g, nextButton);
@@ -250,11 +261,18 @@ unikit.directive("uniWizard", ["$rootScope", "$unikit", "$compile", function ($r
 						scope[wizardIndex] = index;
 					}
 				};
-				scope.__clickNext = function () {
-					scope[wizardIndex] += 1;
-					resizeBar(scope[wizardIndex], sizeSteps);
-					if (scope[detectedSteps].indexOf(scope[wizardIndex]) === -1) {
-						scope[detectedSteps].push(scope[wizardIndex]);
+				scope.__clickNext = function (x) {
+					var value = true;
+					if (formsSteps[scope[wizardIndex]]) {
+						this[formsSteps[scope[wizardIndex]]];
+						value = this[formsSteps[scope[wizardIndex]]].$validate();
+					}
+					if (value) {
+						scope[wizardIndex] += 1;
+						resizeBar(scope[wizardIndex], sizeSteps);
+						if (scope[detectedSteps].indexOf(scope[wizardIndex]) === -1) {
+							scope[detectedSteps].push(scope[wizardIndex]);
+						}
 					}
 				};
 				scope.__clickPrev = function () {
