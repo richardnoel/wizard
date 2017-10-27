@@ -1,0 +1,109 @@
+.icon-text {
+	font-weight: 100!important;
+}
+
+.icon-text + .icon-text{
+	margin-left: 3px;
+}
+
+.uni-close {
+	position: absolute; 
+	right: 4px; 
+	top: 4px;
+	z-index: 2;
+}
+.uni-close > .btn{
+	border-radius: 10px;
+	font-weight: bold;
+}
+.uni-close > .btn > .icon,
+.uni-close > .btn > .text-content{
+	display:none;
+}
+
+.uni-badge.label{
+	font-size: inherit;
+}
+
+/*uni-badge link*/
+.uni-badge.lnk{
+	cursor: pointer;
+}
+
+.uni-badge.lnk:hover{
+	border-bottom: 1px solid;
+}
+
+.uni-badge.lnk-default {
+	color: #337ab7; 
+}
+.uni-badge.lnk-default:hover,
+.lnk-default:focus {
+	color: #337ab7;
+}
+
+.uni-badge.lnk-primary {
+	color: #337ab7; 
+}
+.uni-badge.lnk-primary:hover,
+.lnk-primary:focus {
+	color: #286090;
+}
+
+.uni-badge.lnk-success {
+	color: #5cb85c; 
+}
+.uni-badge.lnk-success:hover,
+.uni-badge.lnk-success:focus {
+	color: #449d44;
+}
+
+.uni-badge.lnk-info {
+	color: #5bc0de; 
+}
+.uni-badge.lnk-info:hover, 
+.uni-badge.lnk-info:focus {
+	color: #31b0d5;
+}
+
+.uni-badge.lnk-warning {
+	color: #f0ad4e;
+}
+.uni-badge.lnk-warning:hover,
+.uni-badge.lnk-warning:focus {
+	color: #ec971f;
+}
+
+.uni-badge.lnk-danger {
+	color: #d9534f; 
+}
+.uni-badge.lnk-danger:hover, 
+.uni-badge.lnk-danger:focus {
+	color: #c9302c;
+}
+
+
+
+.uni-badge > .text-content,
+.uni-badge > .icon-text{
+	display: inline-block;
+}
+
+.uni-badge.left > .text-content{
+	margin-left:3px;
+}
+
+.uni-badge.right > .text-content{
+	margin-right:3px;
+}
+
+.uni-badge.btn{
+	padding: 1px 6px;
+}
+
+.uni-mainGroup .uni-select .dropdown-toggle{
+	border-radius:0px;
+}
+.uni-mainGroup .uni-badge.btn{
+	padding: 0 6px;
+}

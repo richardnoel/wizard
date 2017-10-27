@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <title>AMD</title>
+    <link href="lib/bootstrap.css" rel="stylesheet">
+    <script type="text/javascript" src="lib/angular.js"></script>
+    <script type="text/javascript" src="lib/chart.js"></script>
+    <script type="text/javascript" src="lib/angular-chart.js"></script>
+    <script type="text/javascript" src="pieChart.js"></script>
+  </head>
+  <body ng-app="examples">
+    <br/>
+    <div class="container">
+      <div class="row" ng-controller="PieCtrl">
+        <div class="col-lg-6 col-sm-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">AMD require.js</div>
+            <div class="panel-body">
+              <canvas 
+                chart-colors="data.colors"
+                id="pie" 
+                class="chart chart-pie" 
+                chart-data="data.values" 
+                chart-labels="data.labels" 
+                chart-options="options"
+                chart-click=data.click
+                chart-hover=data.hover>
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

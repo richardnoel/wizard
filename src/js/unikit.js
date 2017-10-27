@@ -1,1 +1,1 @@
-var unikit = angular.module('union-webkit', []);
+var unikit = angular.module('union-webkit', ['chart.js']);

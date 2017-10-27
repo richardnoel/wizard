@@ -1,0 +1,38 @@
+.uni-tree-root,
+.uni-tree-children,
+.uni-tree-root > ul,
+.uni-tree-children  > ul{
+	padding-left: 0;
+	list-style: none;
+}
+.uni-tree-content {
+	display:block;
+	position: relative;
+}
+.uni-tree-content >  .uni-tree-item-state{
+	position: absolute;
+	margin-top: 3px;
+}
+.uni-tree-content >  .uni-tree-item-content{
+	margin-left: 14px;
+}
+.uni-tree-content > * {
+	display:inline-block;
+}
+.uni-tree-content > .uni-tree-item-state > .uni-tree-icon > * { 
+	display: none;
+}
+.uni-tree-children  > ul{
+	padding-left: 0;
+	list-style: none;
+}
+.uni-tree-children{
+	padding-left: 10px;
+	border-style: dotted;
+	border-width: 0 0 0 1px;
+	display: block;
+	margin-left: 5px;
+}
+.uni-tree-icon > .icon-text + .icon-text {
+	margin-left: 0px;
+}

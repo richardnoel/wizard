@@ -1,0 +1,56 @@
+.uni-plus{
+	border-color: whitesmoke;
+	border-style: solid;
+	border-width: 1px 2px 1px 1px;
+	margin: 0 5px;
+}
+.uni-plus > .uni-plus-ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.uni-plus > .uni-plus-ul > .uni-plus-li {
+	margin: 0;
+	padding: 0;
+	border-color: whitesmoke;
+	border-style: solid;
+	border-width: 0 0 2px 0;
+	position: relative;
+}
+.uni-plus > .uni-plus-ul > .uni-plus-li > .uni-plus-content{
+	margin: 0;
+	padding: 0;
+	margin-right: 25px;
+}
+.uni-plus > .uni-plus-ul > .uni-plus-li > .uni-plus-action{
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 2px;
+	left: auto;
+	bottom: auto;
+	right: 2px;
+}
+.uni-plus > .uni-plus-ul > .uni-plus-li > .uni-plus-action > .uni-plus-add{
+
+}
+.uni-plus > .uni-plus-ul > .uni-plus-li > .uni-plus-action > .uni-plus-del{
+
+}
+
+.table.table-plus > thead > tr > td,
+.table.table-plus > thead > tr > th,
+.table.table-plus > tbody > tr > td,
+.table.table-plus > tbody > tr > th{
+	margin: 0;
+	padding: 0 5px;
+}
+.table.table-plus tr.uni-plus > td.uni-plus-action,
+.table.table-plus tr.uni-plus > th.uni-plus-action{
+	width: 20px;
+}
+.table.table-plus tr.uni-plus > td,
+.table.table-plus tr.uni-plus > th{
+	margin: 0;
+	padding: 0 5px;
+}

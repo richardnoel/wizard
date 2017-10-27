@@ -1,0 +1,19 @@
+.st-sort-ascent:before {
+	content: '\25B2';
+}
+
+.st-sort-descent:before {
+	content: '\25BC';
+}
+
+.st-selected {
+	background: #337ab7 !important;
+	color: white !important;
+}
+.uni-table.table{
+	border: 1px solid #c0c0c0;
+}
+
+.uni-table.table td{
+	padding: 5px;
+}

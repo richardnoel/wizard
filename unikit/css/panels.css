@@ -1,0 +1,378 @@
+
+/* custom inclusion of right, left and below tabs */
+
+.uni-tabs-top > .nav-tabs,
+.uni-tabs-right> .nav-tabs,
+.uni-tabs-left> .nav-tabs {
+	border-bottom: 0;
+}
+
+.tab-content > .tab-pane,
+.pill-content > .pill-pane {
+	display: none;
+}
+
+.tab-content > .active,
+.pill-content > .active {
+	display: block;
+}
+
+.uni-tabs-top > .nav-tabs > li {
+	margin-top: -1px;
+	margin-bottom: 0;
+}
+
+.uni-tabs-top > .nav-tabs > li.a,
+.uni-tabs-top > .nav-tabs > li.a {
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+}
+
+.uni-tabs-top > .nav-tabs > li.a:hover,
+.uni-tabs-top > .nav-tabs > li.a:focus,
+.uni-tabs-top > .nav-tabs > li.a:hover,
+.uni-tabs-top > .nav-tabs > li.a:focus {
+	border-top-color: #ddd;
+}
+
+.uni-tabs-top > .nav-tabs > .active.a,
+.uni-tabs-top > .nav-tabs > .active.a:hover,
+.uni-tabs-top > .nav-tabs > .active.a:focus, 
+.uni-tabs-top > .nav-tabs > .active.a,
+.uni-tabs-top > .nav-tabs > .active.a:hover,
+.uni-tabs-top > .nav-tabs > .active.a:focus {
+	border-color: transparent #ddd #ddd #ddd;
+}
+
+.uni-tabs-left> .nav-tabs > li,
+.uni-tabs-right> .nav-tabs > li {
+	float: none;
+}
+
+.uni-tabs-left> .nav-tabs > li.a,
+.uni-tabs-right> .nav-tabs > li.a,
+.uni-tabs-left> .nav-tabs > li.a,
+.uni-tabs-right> .nav-tabs > li.a {
+	min-width: 15em;
+	margin-right: 0;
+	margin-bottom: 3px;
+	text-align: justify;
+}
+
+.uni-tabs-left> .nav-tabs {
+	float: left;
+	margin-right: 19px;
+	border-right: 1px solid #ddd;
+}
+
+.uni-tabs-left> .nav-tabs > li.a,
+.uni-tabs-left> .nav-tabs > li.a {
+	margin-right: -1px;
+	-webkit-border-radius: 4px 0 0 4px;
+	-moz-border-radius: 4px 0 0 4px;
+	border-radius: 4px 0 0 4px;
+}
+
+.uni-tabs-left> .nav-tabs > li.a:focus,
+.uni-tabs-left> .nav-tabs > li.a:focus {
+	border-color: #eeeeee #dddddd #eeeeee #eeeeee;
+}
+
+.uni-tabs-left> .nav-tabs .active.a,
+.uni-tabs-left> .nav-tabs .active.a:focus,
+.uni-tabs-left> .nav-tabs .active.a,
+.uni-tabs-left> .nav-tabs .active.a:focus {
+	border-color: #ddd transparent #ddd #ddd;
+	border-right-width: 0px;
+}
+
+.uni-tabs-right> .nav-tabs {
+	float: right;
+	margin-left: 19px;
+}
+
+.uni-tabs-right> .nav-tabs > li.a,
+.uni-tabs-right> .nav-tabs > li.a {
+	margin-left: -1px;
+	-webkit-border-radius: 0 4px 4px 0;
+	-moz-border-radius: 0 4px 4px 0;
+	border-radius: 0 4px 4px 0;
+}
+
+.uni-tabs-right> .nav-tabs > li.a:hover,
+.uni-tabs-right> .nav-tabs > li.a:focus,
+.uni-tabs-right> .nav-tabs > li.a:hover,
+.uni-tabs-right> .nav-tabs > li.a:focus {
+	border-color: #eeeeee #eeeeee #eeeeee #dddddd;
+}
+
+.uni-tabs-right> .nav-tabs .active.a,
+.uni-tabs-right> .nav-tabs .active.a:hover,
+.uni-tabs-right> .nav-tabs .active.a:focus,
+.uni-tabs-right> .nav-tabs .active.a,
+.uni-tabs-right> .nav-tabs .active.a:hover,
+.uni-tabs-right> .nav-tabs .active.a:focus {
+	border-color: #ddd #ddd #ddd transparent;
+	*border-left-color: #ffffff;
+}
+
+h5{
+	margin: 0px;
+}
+
+/*TABS TAB, LTAB, RTAB, BTAB*/
+.uni-panels .uni-tabs-list li.active.a,
+.uni-panels .uni-tabs-list li.active.a{
+	color: #576373;
+	background-color: #fff;
+}
+
+.uni-panels .uni-tabs-list li.active.a:hover,
+.uni-panels .uni-tabs-list li.a:hover,
+.uni-panels .uni-tabs-list li.active.a:hover,
+.uni-panels .uni-tabs-list li.a:hover{
+	color: #4C8FBD;
+}
+
+.uni-panels .uni-tabs-list li.a,
+.uni-panels .uni-tabs-list li.a{
+	background-color: #F9F9F9;
+	border-color: #C5D0DC;
+	color: #999;
+	border-right-width: 0px;
+}
+
+/*TAB*/
+
+.uni-panels .panel-heading, 
+.uni-panels .uni-tab-item{
+	cursor: pointer;
+}
+.uni-panels.primary > .uni-tabs-list.uni-tabs-top-list > .uni-tab-item.active.a{
+	border-top: 5px solid #337ab7;
+	border-bottom: none;
+}
+.uni-panels.default > .uni-tabs-list.uni-tabs-top-list > .uni-tab-item.active.a{
+	border-top: 5px solid #a9a9a9;
+	border-bottom: none;
+}
+.uni-panels.success > .uni-tabs-list.uni-tabs-top-list > .uni-tab-item.active.a{
+	border-top: 5px solid #4cae4c;
+	border-bottom: none;
+}
+.uni-panels.danger > .uni-tabs-list.uni-tabs-top-list > .uni-tab-item.active.a{
+	border-top: 5px solid #d9534f;
+	border-bottom: none;
+}
+.uni-panels.warning > .uni-tabs-list.uni-tabs-top-list > .uni-tab-item.active.a{
+	border-top: 5px solid #f0ad4e;
+	border-bottom: none;
+}
+.uni-panels.info > .uni-tabs-list.uni-tabs-top-list > .uni-tab-item.active.a{
+	border-top: 5px solid #46b8da;
+	border-bottom: none;
+}
+
+.uni-panels .uni-tabs-top-list li.a,
+.uni-panels .uni-tabs-top-list li.a{
+	margin: 0 -1px 0 0;
+}
+
+.uni-panels.uni-tabs-top.primary >.tab-content.uni-tabs-top{
+	border: 1px solid #c0d5e6;
+}
+.uni-panels.uni-tabs-top.default >.tab-content.uni-tabs-top{
+	border: 1px solid #c0c0c0;
+}
+.uni-panels.uni-tabs-top.success >.tab-content.uni-tabs-top{
+	border: 1px solid #c6e0c6;
+}
+.uni-panels.uni-tabs-top.danger >.tab-content.uni-tabs-top{
+	border: 1px solid #efd3d3;
+}
+.uni-panels.uni-tabs-top.warning >.tab-content.uni-tabs-top{
+	border: 1px solid #e4cba6;
+}
+.uni-panels.uni-tabs-top.info >.tab-content.uni-tabs-top{
+	border: 1px solid #bbe6f3;
+}
+
+.uni-panels.uni-tabs-top.primary >.tab-content.uni-tabs-top,
+.uni-panels.uni-tabs-top.default >.tab-content.uni-tabs-top,
+.uni-panels.uni-tabs-top.success >.tab-content.uni-tabs-top,
+.uni-panels.uni-tabs-top.danger >.tab-content.uni-tabs-top,
+.uni-panels.uni-tabs-top.warning >.tab-content.uni-tabs-top,
+.uni-panels.uni-tabs-top.info >.tab-content.uni-tabs-top{
+	border-top: none;
+	padding:5px;
+}
+
+/*tab left*/
+.uni-panels.uni-tabs-left.primary >.tab-content.uni-tabs-left{
+	border: 1px solid #c0d5e6;
+}
+.uni-panels.uni-tabs-left.default >.tab-content.uni-tabs-left{
+	border: 1px solid #c0c0c0;
+}
+.uni-panels.uni-tabs-left.success >.tab-content.uni-tabs-left{
+	border: 1px solid #c6e0c6;
+}
+.uni-panels.uni-tabs-left.danger >.tab-content.uni-tabs-left{
+	border: 1px solid #efd3d3;
+}
+.uni-panels.uni-tabs-left.warning >.tab-content.uni-tabs-left{
+	border: 1px solid #e4cba6;
+}
+.uni-panels.uni-tabs-left.info >.tab-content.uni-tabs-left{
+	border: 1px solid #bbe6f3;
+}
+
+.uni-panels.uni-tabs-left.primary >.tab-content.uni-tabs-left,
+.uni-panels.uni-tabs-left.default >.tab-content.uni-tabs-left,
+.uni-panels.uni-tabs-left.success >.tab-content.uni-tabs-left,
+.uni-panels.uni-tabs-left.danger >.tab-content.uni-tabs-left,
+.uni-panels.uni-tabs-left.warning >.tab-content.uni-tabs-left,
+.uni-panels.uni-tabs-left.info >.tab-content.uni-tabs-left{
+	border-left: none;
+	width: 100%;
+	padding:5px;
+}
+
+.uni-panels.uni-tabs-left {
+	display: flex;
+}
+
+.uni-panels.uni-tabs-left .nav-tabs{
+	margin-right: 0px;
+}
+
+.uni-panels.primary > .uni-tabs-list.uni-tabs-left-list > .uni-tab-item.active.a{ 
+	border-right: none;
+	border-left: 5px solid #337ab7;
+}
+.uni-panels.default > .uni-tabs-list.uni-tabs-left-list > .uni-tab-item.active.a{
+	border-right: none;
+	border-left: 5px solid #a9a9a9;
+}
+.uni-panels.success > .uni-tabs-list.uni-tabs-left-list > .uni-tab-item.active.a{
+	border-right: none;
+	border-left: 5px solid #4cae4c;
+}
+.uni-panels.danger > .uni-tabs-list.uni-tabs-left-list > .uni-tab-item.active.a{
+	border-right: none;
+	border-left: 5px solid #d9534f;
+}
+.uni-panels.warning > .uni-tabs-list.uni-tabs-left-list > .uni-tab-item.active.a{
+	border-right: none;
+	border-left: 5px solid #f0ad4e;
+}
+.uni-panels.info > .uni-tabs-list.uni-tabs-left-list > .uni-tab-item.active.a{
+	border-right: none;
+	border-left: 5px solid #46b8da;
+}
+
+.uni-panels.uni-tabs-left >.uni-tabs-left-list{
+	float: left;
+}
+
+.uni-panels.uni-tabs-left.primary > .uni-tabs-left-list{
+	border-right: 1px solid #c0d5e6;
+}
+.uni-panels.uni-tabs-left.default > .uni-tabs-left-list{
+	border-right: 1px solid #c0c0c0;
+}
+.uni-panels.uni-tabs-left.success > .uni-tabs-left-list{
+	border-right: 1px solid #c6e0c6;
+}
+.uni-panels.uni-tabs-left.danger > .uni-tabs-left-list{
+	border-right: 1px solid #efd3d3;
+}
+.uni-panels.uni-tabs-left.warning > .uni-tabs-left-list{
+	border-right: 1px solid #e4cba6;
+}
+.uni-panels.uni-tabs-left.info > .uni-tabs-left-list{
+	border-right: 1px solid #bbe6f3;
+}
+
+/*tab right*/
+.uni-panels .uni-tabs-right-list li.active.a{
+	border-left: none;
+	border-right: 2px solid #4C8FBD;
+}
+
+.uni-panels.uni-tabs-right .tab-content{
+	border-right: none;
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 2px;
+}
+/*tab bottom*/
+.uni-panels.uni-tabs-right .nav-tabs{
+	margin-right: 0px;
+}
+
+.uni-panels .uni-tabs-bottom-list li.active.a {
+	border-top: none;
+	border-bottom: 2px solid #4C8FBD;
+}
+
+.uni-panels .uni-tabs-bottom-list li.a {
+	margin: 0 -1px 0 0;
+	border-radius: 3px 3px 0px 0px;
+}
+
+.uni-panels.uni-tabs-bottom .tab-content {
+	border-bottom: none;
+}
+
+.uni-panels .uni-tabs-list .uni-tab-item .a{
+	font-size:12px;
+}
+
+.uni-panels .uni-tab-item.a {
+	padding: 10px 15px;
+}
+.uni-panels.primary > .uni-tabs-list.uni-tabs-top-list > .uni-tab-item.a,
+.uni-panels.primary > .uni-tabs-list.uni-tabs-left-list > .uni-tab-item.a{
+	border: 1px solid #c0d5e6;
+}
+.uni-panels.danger > .uni-tabs-list.uni-tabs-top-list > .uni-tab-item.a,
+.uni-panels.danger > .uni-tabs-list.uni-tabs-left-list > .uni-tab-item.a{
+	border: 1px solid #efd3d3;
+}
+.uni-panels.success > .uni-tabs-list.uni-tabs-top-list > .uni-tab-item.a,
+.uni-panels.success > .uni-tabs-list.uni-tabs-left-list > .uni-tab-item.a{
+	border: 1px solid #c6e0c6;
+}
+.uni-panels.warning > .uni-tabs-list.uni-tabs-top-list > .uni-tab-item.a,
+.uni-panels.warning > .uni-tabs-list.uni-tabs-left-list > .uni-tab-item.a{
+	border: 1px solid #e4cba6;
+}
+.uni-panels.default > .uni-tabs-list.uni-tabs-top-list > .uni-tab-item.a,
+.uni-panels.default > .uni-tabs-list.uni-tabs-left-list > .uni-tab-item.a{
+	border: 1px solid #c0c0c0;
+}
+.uni-panels.info > .uni-tabs-list.uni-tabs-top-list > .uni-tab-item.a,
+.uni-panels.info > .uni-tabs-list.uni-tabs-left-list > .uni-tab-item.a{
+	border: 1px solid #46b8da;
+}
+
+.uni-panels .uni-tabs-list .uni-tab-item a,
+.uni-panels .uni-tabs-list .uni-tab-item a:hover,
+.uni-panels .uni-tabs-list .uni-tab-item a:focus{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	background-color:inherit;
+}
+
+/*ACC*/
+
+.uni-panels.uni-accordion > .panel > .panel-heading{
+	padding: 0px;
+}
+.uni-accordion .panel .panel-heading .panel-title{
+	padding: 5px;
+}

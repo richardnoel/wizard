@@ -1,0 +1,37 @@
+<!doctype html>
+<html ng-app="union-webkit">
+	<head>
+		<link rel="stylesheet" type="text/css" href="/jquery/build.css">
+		<link rel="stylesheet" type="text/css" href="/bootstrap/build.css">
+		<link rel="stylesheet" type="text/css" href="/angularjs/build.css">
+		<link rel="stylesheet" type="text/css" href="/webkit/unikit.css">
+		<script type="text/javascript" src="/jquery/build.js"></script>
+		<script type="text/javascript" src="/bootstrap/build.js"></script>
+		<script type="text/javascript" src="/angularjs/build.js"></script>
+		<script type="text/javascript" src="/chartjs/chart.js"></script>
+		<script type="text/javascript" src="/chartjs/angular-chart.js"></script>
+		<script type="text/javascript" src="/webkit/unikit.js"></script>
+	</head>
+	<!--
+		http://azmind.com/demo/bootzard-bootstrap-wizard-template/
+		http://bashooka.com/coding/jquery-step-by-step-form-wizard-plugins/
+		http://www.jqueryscript.net/demo/Simple-Wizard-Modal-Plugin-with-jQuery-Bootstrap-Easy-Wizard/
+	-->
+	<body >
+		<div style="margin:40px">
+			<div ng-controller="controller">
+				<pre>{{data|json}}</pre>
+				<canvas
+					chart-colors="data.colors"
+					id="pie" 
+					class="chart chart-pie" 
+					chart-data="data.values" 
+					chart-labels="data.labels" 
+					chart-options="options"
+					chart-click=data.click
+					chart-hover=data.hover>
+				</canvas>
+			</div>				
+		</div>
+	</body>
+</html>

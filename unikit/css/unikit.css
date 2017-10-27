@@ -1,0 +1,120 @@
+.uni-group {
+	border-radius: 0px!important;
+	width: 100%;
+}
+
+.uni-group button{
+	border-radius: 0px!important;
+}
+
+.uni-mainGroup .uni-addon-first{
+	border-radius: 0px!important;
+	border-right: 0px solid #ccc;
+}
+
+.uni-mainGroup .uni-addon-medium{
+	border-radius: 0px!important;
+}
+
+.uni-mainGroup .uni-medium-addon button{
+	border-radius:0px;
+	width:100%;
+}
+
+.input-group-addon.primary {
+	color: rgb(255, 255, 255);
+	background-color: rgb(50, 118, 177);
+	border-color: rgb(40, 94, 142);
+}
+.input-group-addon.success {
+	color: rgb(255, 255, 255);
+	background-color: rgb(92, 184, 92);
+	border-color: rgb(76, 174, 76);
+}
+.input-group-addon.info {
+	color: rgb(255, 255, 255);
+	background-color: rgb(57, 179, 215);
+	border-color: rgb(38, 154, 188);
+}
+.input-group-addon.warning {
+	color: rgb(255, 255, 255);
+	background-color: rgb(240, 173, 78);
+	border-color: rgb(238, 162, 54);
+}
+.input-group-addon.danger {
+	color: rgb(255, 255, 255);
+	background-color: rgb(217, 83, 79);
+	border-color: rgb(212, 63, 58);
+}
+
+.input-group-addon.default{
+	color: #333;
+	background-color: #fff;
+	border-color: #ccc;  
+}
+
+.uni-grid-row{
+	margin-top: 5px;
+}
+
+.uni-editor,
+.uni-select,
+.uni-input{
+	width: 100%;
+}
+
+
+.uni-input.uni-file{
+	width: 100%;
+	margin-bottom: 5px;
+}
+
+.uni-input.uni-file .icon{
+	border:none;
+	display: initial;
+}
+
+.uni-confirm-modal .modal-footer {
+	padding: 5px;
+}
+
+.uni-confirm-modal .modal-footer button{
+	padding: 2px 15px 2px 15px;
+}
+
+.modal-header.uni-modal-header,
+.modal-body.uni-modal-body{
+	text-align: start;
+}
+
+textarea.form-control.ng-pristine {
+	min-height: 40px !important;
+	resize: vertical;
+}
+
+.uni-scroll{
+	position: relative!important;
+}
+
+.uni-table.table tbody {
+	display:block;
+}
+
+.uni-table.table thead,
+.uni-table.table tbody tr {
+	display:table;
+	width:100%;
+	table-layout:fixed;
+}
+
+.uni-table.table thead {
+	width: calc( 100% - 1em )
+}
+
+.uni-plus.uni-scroll ul{
+	margin-right:15px;
+}
+.uni-scroll.always-visible > .ps__scrollbar-y-rail,
+.uni-scroll.always-visible > .ps__scrollbar-x-rail {
+	opacity: 0.6;
+}

@@ -1,0 +1,22 @@
+.uni-grid-active {}
+
+.uni-grid-inactive {}
+
+.uni-grid-inactive .form-control[disabled]:active, 
+.uni-grid-inactive .form-control[readonly]:active,
+.uni-grid-inactive .form-control[disabled]:hover, 
+.uni-grid-inactive .form-control[readonly]:hover,
+.uni-grid-inactive .form-control[disabled], 
+.uni-grid-inactive .form-control[readonly]{
+	cursor: not-allowed;
+ font-weight: initial;
+	box-shadow: none;
+	_pointer-events: none;
+ background-color: white;
+	color: #777;
+ border: 1px solid #eee;
+}
+.uni-grid-inactive .form-control[disabled] + .icon,
+.uni-grid-inactive .form-control[readonly] + .icon {
+	display: none;	
+}

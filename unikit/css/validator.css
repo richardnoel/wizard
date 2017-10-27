@@ -1,0 +1,95 @@
+:required  {
+	background: url(/static/images/required-icon.png) no-repeat;
+	background-position: right;
+	background-size: 0.7em;
+	background-position-y: 3px;
+}
+
+.uni-select .ng-valid-add.ng-touched + .icon > .icon-text{
+	color: #333;
+}
+
+.uni-select .ng-valid-add.ng-touched + .icon{
+	background-color: #fff;
+	border-color: #ccc;
+}
+
+.ng-invalid.ng-touched + .input-group-btn .icon,
+.ng-invalid.ng-touched .dropdown-toggle,
+.ng-invalid.ng-touched,
+.ng-invalid.ng-touched + .icon{
+	color: #d9534f;
+	border-color: #d43f3a;
+}
+
+.ng-invalid.ng-touched + .icon{
+	background-color: #d43f3a;
+}
+.uni-select.has-uni-error .ng-touched .dropdown-toggle{
+	border-color: #d43f3a;
+}
+.uni-select.has-uni-error .ng-dirty + .icon > .icon-text{
+	color: white;
+	border-color: #d43f3a;
+}
+
+.uni-select.has-uni-error .ng-dirty + .icon{
+	background-color: #d43f3a;
+}
+
+
+.ng-invalid.ng-touched + .icon > .icon-text {
+	color: white;
+}
+
+.uni-list-error .uni-error-item{
+	color: #d9534f;
+}
+
+.ng-valid.uni-valid-form .ng-valid,
+.ng-valid.uni-valid-form .ng-touched,
+.ng-valid.uni-valid-form .ng-touched,
+.ng-valid.uni-valid-form .dropdown-toggle{
+	border-color: rgb(92, 184, 92);
+}
+
+.ng-valid.uni-valid-form .ng-valid + .icon,
+.ng-valid.uni-valid-form .ng-touched + .icon {
+	background-color: rgb(92, 184, 92);
+	color: #ffffff;
+}
+.ng-valid.uni-valid-form .uni-select .ng-valid-add.ng-touched + .icon > .icon-text{
+	color: #ffffff;
+}
+
+.uni-mainGroup .tooltip .tooltip-inner,
+.uni-field .tooltip .tooltip-inner{
+ color: #fff;
+ background-color: #c75d5d;
+ text-align:left;
+	padding :2px 5px 2px 5px;
+}
+
+.tooltip.bottom .tooltip-arrow,
+.tooltip.top .tooltip-arrow{
+	border-bottom-color: #c75d5d;
+	border-top-color: #c75d5d;
+}
+
+.error-child.list-unstyled{
+	margin-left: 15px;
+}
+
+.error-main .icon,
+.error-main .main-message{
+	color: #c9302c;
+}
+
+.uni-validator-modal .modal-body{
+	max-height: 200px;
+	overflow: auto;
+}
+
+.uni-validator-modal .modal{
+	overflow:inherit;
+}

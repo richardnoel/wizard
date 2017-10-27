@@ -1,0 +1,60 @@
+.uni-image{
+	height: auto;
+	width: auto;
+}
+
+.img {
+	height: 100%;
+	width: 100%;
+}
+.modal-dialog .img{
+	height: 100%;
+	width: 100%;
+}
+
+.image-container{
+	width: auto;
+	height: auto;
+	display: block;
+	border: 1px solid #ddd;
+	padding: 4px;
+	box-sizing: border-box;
+	border-radius: 2px;
+	box-shadow: 1px 1px 5px 0 #a2958a;
+}
+
+.image-container:hover{
+	box-shadow: 3px 3px 5px 0 #737171
+}
+
+.buttons {
+	text-align: right;
+	width: auto;
+	display: block;
+	margin: 4px 0px 0px 4px;
+}
+
+.buttons button:hover{
+	color: #fff;
+	background-color: #868e96;
+	border-color: #868e96;
+}
+
+.uni-image .image-container .modal-footer{
+	padding: 5px;
+}
+
+.uni-image .image-container  .modal-header{
+	height: 5px;
+	padding: 0px;
+	border: 0px;
+}
+.uni-image .image-container .uni-close {
+	right: -10px;
+	top: -10px;
+}
+
+.uni-image .image-container .modal-body{
+	padding:5px;
+}
+

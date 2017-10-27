@@ -1,0 +1,42 @@
+.uni-pager.collapse {display: block;height: auto !important;}
+.uni-pager .pagination {margin: 0;padding: 0;}
+.uni-pager.collapse > .panel-body{display: none;}
+.uni-pager.collapse.in > .panel-body{display: block;}
+
+
+.uni-pager.collapse .filter-off,
+.uni-pager.collapsing .filter-on,
+.uni-pager.collapse.in .filter-on{display: inline-block;}
+
+.uni-pager.collapse .filter-on,
+.uni-pager.collapsing .filter-off,
+.uni-pager.collapse.in .filter-off{display: none;}
+
+.uni-pager{
+	border: 0;
+	padding-top: 5px;
+}
+.uni-pager > .panel-heading{
+	background-color: white;
+	padding: 0px 10px;
+	border: 0;
+	height: 18px;
+}
+.uni-pager > .panel-heading > .uni-pager-left {
+	font-weight: bold;
+}
+.uni-pager > .panel-heading > .uni-pager-right {
+	margin-top: -1px;
+}
+.uni-pager > .pager-body {
+	padding-top: 0;
+	padding-bottom: 0px;
+}
+.uni-pager > .pager-body .table {
+	margin: 0;
+	padding: 0;
+}
+.uni-pager > .pager-body .table > tbody > tr > td{
+	padding-top: 4px;
+	padding-bottom: 4px;
+}

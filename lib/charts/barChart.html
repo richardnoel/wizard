@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>AMD</title>
+  <link href="lib/bootstrap.css" rel="stylesheet">
+  <script type="text/javascript" src="lib/angular.js"></script>
+  <script type="text/javascript" src="lib/chart.js"></script>
+  <script type="text/javascript" src="lib/angular-chart.js"></script>
+  <script type="text/javascript" src="barChart.js"></script>
+</head>
+<body ng-app="examples">
+  <br/>
+  <div class="container">
+    <div class="row" ng-controller="BarCtrl">
+      <div class="col-lg-6 col-sm-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">AMD require.js</div>
+          <div class="panel-body">
+            <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels"> chart-series="series" </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

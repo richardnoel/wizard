@@ -18,6 +18,11 @@ var files = {
 		"src/js/ui-zoom.js",
 		"src/js/ui-collapse.js",
 		"src/js/ui-panel.js"
+	],
+	html:[
+		"src/index.html",
+		"src/index2.html",
+		"src/index3.html"
 	]
 };
 

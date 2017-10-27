@@ -1,0 +1,29 @@
+.uni-click,
+.uni-click * {
+	cursor: pointer;
+}
+
+.uni-action-block{
+}
+.uni-action-dropdown{
+}
+
+.uni-action-dropdown .dropdown-menu{
+	min-width:100px;
+	padding: 0px;
+}
+
+.uni-action-dropdown > ul > li > button {
+	width: 100%;
+	border-radius:0px;
+	opacity: 0.9;
+	text-align: left;
+}
+
+.uni-action-header {
+	margin-top: -1px;
+}
+
+.uni-action-header > .btn{
+	border-radius: 10px;
+}
